@@ -49,6 +49,14 @@ export async function postJson(url: string, headers: Record<string, string>, bod
   try {
     const res = await fetch(url, { method: "POST", headers: { "content-type": "application/json", ...headers }, body: JSON.stringify(body), signal: ctrl.signal })
     if (!res.ok) {
+      // Solo el tipo de error del proveedor (p. ej. authentication_error); nunca el cuerpo completo.
+      const tipo = await res
+        .json()
+        .then((b: unknown) => {
+          const e = (b as { error?: { type?: unknown } }).error
+          return typeof e?.type === "string" ? ` [${e.type}]` : ""
+        })
+        .catch(() => "")
       const motivo =
         res.status === 401 || res.status === 403
           ? "la clave del proveedor es inválida o no tiene permisos"
@@ -57,7 +65,7 @@ export async function postJson(url: string, headers: Record<string, string>, bod
             : res.status >= 500
               ? "el proveedor del modelo no está disponible en este momento"
               : `el proveedor rechazó la petición (HTTP ${res.status})`
-      throw new ErrorLlm(motivo)
+      throw new ErrorLlm(`${motivo} (HTTP ${res.status}${tipo})`)
     }
     return (await res.json()) as unknown
   } catch (e) {

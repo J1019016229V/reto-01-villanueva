@@ -6,6 +6,8 @@ import { MockAdapter } from "./mock"
 import { OpenAiCompatAdapter } from "./openai"
 
 export function crearAdaptador(directory: string, env: Record<string, string | undefined> = process.env): LlmAdapter {
+  // Recorta espacios o saltos de línea accidentales al pegar la clave en el panel del hosting.
+  env = { ...env, ANTHROPIC_API_KEY: env.ANTHROPIC_API_KEY?.trim(), OPENAI_API_KEY: env.OPENAI_API_KEY?.trim() }
   const timeout = Number(env.LLM_TIMEOUT_MS ?? 60000)
   const proveedor = env.LLM_PROVIDER ?? (env.ANTHROPIC_API_KEY ? "anthropic" : env.OPENAI_API_KEY ? "openai" : "mock")
 
