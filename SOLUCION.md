@@ -122,7 +122,7 @@ Registrados en la compuerta de validación de la spec ([`specs/02-validacion-spe
 | HU-4 Paquete y confirmación | ✅ Hecho | checklist, borrador sin datos bancarios (verificado en código), `ENVIO-SIMULADO.md` solo con un "sí" | Integración con firma electrónica y correo |
 | HU-5 Errores | ✅ Hecho | caso inexistente, ruta maliciosa, herramienta desconocida, timeout y HTTP del LLM → mensaje claro | Alertas y monitoreo |
 | Bonus módulo | ✅ Hecho | `modulo/` generado desde las mismas fuentes; `demo.ts` verifica la sincronía | Publicarlo como paquete npm |
-| Link público | ⏳ | `render.yaml` + `Dockerfile` listos | Desplegar y pegar la URL en el README |
+| Link público | ✅ Hecho | https://agente-registro-proveedor-tw35.onrender.com (Render, Docker, `render.yaml`) | Plan pago para evitar el arranque en frío |
 
 ## 9. Uso de IA
 

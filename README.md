@@ -54,7 +54,9 @@ Ejecuta las 5 herramientas sobre los 4 casos, más un caso inexistente, una ruta
 
 ## Link de prueba
 
-**URL:** `<<pendiente: pegar la URL de Render>>` · **Clave de acceso:** `<<si se definió ACCESS_KEY>>`
+**URL:** https://agente-registro-proveedor-tw35.onrender.com · **Clave de acceso:** se entrega por correo (campo "clave de acceso" en el panel izquierdo)
+
+> Plan gratuito de Render: si el servicio estuvo inactivo, la primera petición puede tardar ~50 s en despertar.
 
 Despliegue en Render: *New → Blueprint →* seleccionar este repo (usa `render.yaml` + `Dockerfile`) y cargar `ANTHROPIC_API_KEY` en el panel.
 
