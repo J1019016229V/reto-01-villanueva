@@ -1,0 +1,42 @@
+{
+  "version": "2026-11-11",
+  "pais_base_maestro": "CO",
+  "identificador_tributario_por_pais": {
+    "CO": "NIT",
+    "EC": "RUC",
+    "PE": "RUC",
+    "PA": "RUC",
+    "HN": "RTN"
+  },
+  "etiquetas_tributarias": ["NIT", "RUC", "RTN", "Identificación tributaria", "Número de identificación fiscal"],
+  "etiquetas_tributarias_ambiguas": ["Identificación tributaria", "Número de identificación fiscal"],
+  "ruta_identificador_tributario": "nit",
+  "nota_identificador_extranjero": "identificador extranjero",
+  "umbrales": {
+    "lleno": 0.8,
+    "minimo_propuesta": 0.5
+  },
+  "confianza": {
+    "glosario_exacto": 1.0,
+    "glosario_normalizado": 0.95,
+    "clave_maestro": 0.9
+  },
+  "rutas_sensibles": ["banco.numero_cuenta"],
+  "prefijo_rutas_bancarias": "banco.",
+  "nombres_soportes": {
+    "camara_comercio": "Certificado de Cámara de Comercio (existencia y representación legal)",
+    "rut": "RUT (registro tributario)",
+    "certificacion_bancaria": "Certificación bancaria",
+    "parafiscales": "Certificación de pago de parafiscales y seguridad social",
+    "estados_financieros": "Estados financieros",
+    "certificado_iso_9001": "Certificado ISO 9001",
+    "certificado_cumplimiento_tributario": "Certificado de cumplimiento tributario"
+  },
+  "nombres_paises": {
+    "CO": "Colombia",
+    "EC": "Ecuador",
+    "PE": "Perú",
+    "PA": "Panamá",
+    "HN": "Honduras"
+  }
+}

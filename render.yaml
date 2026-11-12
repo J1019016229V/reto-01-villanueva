@@ -1,0 +1,20 @@
+# Despliegue en Render (Blueprint): New → Blueprint → seleccionar el repo.
+services:
+  - type: web
+    name: agente-registro-proveedor
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false        # se ingresa en el panel de Render, nunca en el repo
+      - key: LLM_MODEL
+        value: claude-sonnet-5-5
+      - key: MAX_ITERACIONES
+        value: "25"
+      - key: MAX_TOKENS_SESION
+        value: "200000"
+      - key: ACCESS_KEY
+        sync: false
+      - key: TZ
+        value: America/Bogota
