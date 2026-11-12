@@ -12,7 +12,7 @@ export function crearAdaptador(directory: string, env: Record<string, string | u
   const proveedor = env.LLM_PROVIDER ?? (env.ANTHROPIC_API_KEY ? "anthropic" : env.OPENAI_API_KEY ? "openai" : "mock")
 
   if (proveedor === "anthropic" && env.ANTHROPIC_API_KEY) {
-    return new AnthropicAdapter(env.ANTHROPIC_API_KEY, env.LLM_MODEL ?? "claude-sonnet-5-5", timeout, 2048, env.ANTHROPIC_BASE_URL)
+    return new AnthropicAdapter(env.ANTHROPIC_API_KEY, env.LLM_MODEL ?? "claude-sonnet-5-5", timeout, 2048, env.ANTHROPIC_BASE_URL, env.ANTHROPIC_VERSION)
   }
   if (proveedor === "openai" && env.OPENAI_API_KEY) {
     return new OpenAiCompatAdapter(env.OPENAI_API_KEY, env.LLM_MODEL ?? "gpt-4.1-mini", env.OPENAI_BASE_URL ?? "https://api.openai.com/v1", timeout)

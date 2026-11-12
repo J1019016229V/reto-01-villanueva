@@ -37,13 +37,14 @@ export class AnthropicAdapter implements LlmAdapter {
     readonly modelo: string,
     private readonly timeoutMs: number,
     private readonly maxTokensRespuesta = 2048,
-    private readonly baseUrl = "https://api.anthropic.com",
+    private readonly baseUrl: string = "https://api.anthropic.com",
+    private readonly version = "2023-06-01",
   ) {}
 
   async enviar(sistema: string, mensajes: Mensaje[], herramientas: DefinicionHerramienta[]): Promise<RespuestaLlm> {
     const crudo = await postJson(
       `${this.baseUrl.replace(/\/$/, "")}/v1/messages`,
-      { "x-api-key": this.apiKey, "anthropic-version": "2023-06-01" },
+      { authorization: `Bearer ${this.apiKey}`, "anthropic-version": this.version },
       {
         model: this.modelo,
         max_tokens: this.maxTokensRespuesta,
